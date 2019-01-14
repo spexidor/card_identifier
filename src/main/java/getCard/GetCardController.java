@@ -1,4 +1,4 @@
-package hello;
+package cardmatcher.rest;
 
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +12,8 @@ public class GetCardController {
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping("/getCard")
-    public GetCard getCard(@RequestParam(value="name", defaultValue="World") String name) {
-        return new GetCard(counter.incrementAndGet(),
-                            String.format(template, name));
+    public GetCardRestService getCard(@RequestParam(value="imageData", defaultValue="123") String name) {
+        //return new GetCardRestService(counter.incrementAndGet());
+    	return new GetCardRestService(name);
     }
 }
